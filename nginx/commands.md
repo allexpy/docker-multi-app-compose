@@ -19,7 +19,8 @@ docker run -p 8080:80 my-nginx
 ```
 Get inside container:
 -it interactive mode
-docker run -it my-nginx /bin/bash
+--rm removes the image at the end
+docker run -it --rm my-nginx /bin/bash
 ```
 
 

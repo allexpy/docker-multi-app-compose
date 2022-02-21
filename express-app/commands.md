@@ -5,22 +5,22 @@ Build an image:
 -f the actual Dockerfile building
 . the current directory
 
-docker build -t py-app-1 -f Dockerfile.py-app .
+docker build -t express-app -f Dockerfile.nginx .
 ```
 
 ```
 Running a container image:
-py-app-1 is the image tag
+express-app is the image tag
 -p 8080:80 port mapping
 
-docker run -p 8080:8000 py-app-1
+docker run -p 8080:8000 -e PORT=8000 express-app
 ```
 
 ```
 Get inside container:
 -it interactive mode
 --rm removes the image at the end
-docker run -it --rm py-app-1 /bin/bash
+docker run -it --rm express-app /bin/bash
 ```
 
 
