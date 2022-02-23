@@ -6,6 +6,6 @@ WORKDIR /app
 RUN npm install
 RUN chmod +x run.sh
 
-ENV PORT=9000
+ENV PORT=8000
 
 CMD ["./run.sh"]

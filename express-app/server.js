@@ -7,11 +7,11 @@ const port = process.env.PORT || 3000
 // }
 
 app.get("/", (request, response) => {
-    response.send("hello world")
+    response.send("express js index")
 })
 
 app.get("/world/", (request, response) => {
-    response.send("the world")
+    response.send("express js world page")
 })
 
 app.listen(port, () => {
