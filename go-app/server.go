@@ -21,6 +21,14 @@ func main() {
     http.ListenAndServe(":" + port, nil)
 }
 
+func main_2() {
+    var port string
+    port = getEnv("PORT", "8012")
+    http.HandleFunc("/extended/", HelloServer)
+	fmt.Println("Running from http://localhost:" + port)
+    http.ListenAndServe(":" + port, nil)
+}
+
 func HelloServer(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
 }
