@@ -1,6 +1,6 @@
 version: '3.9'
 services:
-  ironman:
+  python:
     build:
       context: ./py-app  # the folder content
       dockerfile: Dockerfile.py-app
@@ -9,7 +9,7 @@ services:
     expose:
       - "8081"
 
-  falcon:
+  javascript:
     build:
       context: ./express-app
       dockerfile: Dockerfile.express-app
@@ -18,6 +18,24 @@ services:
     expose:
       - "8082"
 
+  php:
+    build:
+      context: ./php-app
+      dockerfile: Dockerfile.php-app
+    environment:
+      - "PORT=8083"
+    expose:
+      - "8083"
+
+  go:
+    build:
+      context: ./go-app
+      dockerfile: Dockerfile.go-app
+    environment:
+      - "PORT=8084"
+    expose:
+      - "8084"
+
   nginx:
     build:
       context: ./nginx
@@ -25,5 +43,7 @@ services:
     ports:
       - "8080:80"
     depends_on:  # run after those 2 services
-      - ironman
-      - falcon
+      - python
+      - javascript
+      - php
+      - go
