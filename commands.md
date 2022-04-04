@@ -18,4 +18,28 @@ javascript: http://localhost:8080/javascript/
 javascript: http://localhost:8080/javascript/extended/
 go: http://localhost:8080/go/
 go: http://localhost:8080/go/extended/
+staticfiles: http://localhost:8080/static/
+```
+
+```
+Automated volume creation:
+
+docker run -v myvolume:/where/to/mount container-image
+```
+
+```
+Manual volume creation:
+
+docker run -v /abs/path/to/localdata:/where/to/mount/ 
+```
+
+```
+### Database:
+
+docker pull postgres
+
+docker run -p 6543:5432 -e POSTGRES_USER=myuser -e POSTGRES_PASSWORD=mytestpw -d postgres
+
+docker run -it --rm postgres /bin/bash
+# psql -U myuser
 ```

@@ -86,3 +86,5 @@ reload
 
 # newrelic
 newrelic.ini
+
+.env
