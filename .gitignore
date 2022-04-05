@@ -87,4 +87,7 @@ reload
 # newrelic
 newrelic.ini
 
+.env.db
 .env
+
+django-app/application/local_settings.py

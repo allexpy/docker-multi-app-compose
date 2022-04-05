@@ -1,0 +1,16 @@
+FROM python:3.10.1-slim
+
+COPY . /app
+
+# Cd there
+WORKDIR /app
+
+# for psycopg2
+RUN apt update && apt -y dist-upgrade
+RUN apt install -y netcat
+
+RUN pip install pip --upgrade
+RUN pip install -r requirements.txt
+RUN chmod +x run.sh
+
+CMD ["./run.sh"]
