@@ -43,8 +43,6 @@ services:
       - "8081"
     volumes:  # persistent data across all containers
       - "./persistent_data:/app/persistent_data"
-#    depends_on:  # depends on this database
-#      - "db"
 
   javascript:
     build:
@@ -99,3 +97,5 @@ volumes:
   postgres_data:
   persistent_data:
     external: false  # external true means that the volume was already created and just use it, to let docker compose create the volume just use external false
+  staticfiles:
+    external: false
