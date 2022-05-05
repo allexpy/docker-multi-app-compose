@@ -63,7 +63,7 @@ target/
 *.DS_Store
 
 # Django local settings
-application/application/local_settings.py
+
 
 #pycharm
 .idea/
