@@ -85,9 +85,6 @@ application/*/migrations/0*
 reload
 
 # newrelic
-newrelic.ini
+newrelic.in
 
-.env.db
-.env
 
-django-app/application/local_settings.py
