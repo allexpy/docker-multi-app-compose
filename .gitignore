@@ -63,7 +63,7 @@ target/
 *.DS_Store
 
 # Django local settings
-
+application/application/local_settings.py
 
 #pycharm
 .idea/
@@ -85,6 +85,9 @@ application/*/migrations/0*
 reload
 
 # newrelic
-newrelic.in
+newrelic.ini
 
+.env.db
+.env
 
+django-app/application/local_settings.py
