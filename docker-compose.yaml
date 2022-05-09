@@ -32,6 +32,8 @@ services:
       - ".env"
     depends_on:
       - db
+    volumes:
+      - './staticfiles:/app/staticfiles/'
 
   python:
     build:
@@ -90,7 +92,7 @@ services:
       - php
       - go
     volumes:
-      - "./persistent_data:/www/static/"
+      - "./staticfiles:/www/static/"
 
 volumes:
   redis_data:

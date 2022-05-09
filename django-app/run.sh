@@ -15,6 +15,7 @@ fi
 
 python manage.py migrate --noinput
 python manage.py createsuperuser --noinput
+python manage.py collectstatic --noinput
 
 RUN_PORT=${PORT:-8085}
 /usr/local/bin/gunicorn application.wsgi:application --bind "0.0.0.0:${RUN_PORT}"

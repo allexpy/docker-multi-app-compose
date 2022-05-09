@@ -16,9 +16,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ROOT_DIR = Path(__file__).parents[2]
-APPS_DIR = ROOT_DIR / "application"
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # GENERAL
@@ -31,7 +29,7 @@ USE_L10N = True  # https://docs.djangoproject.com/en/dev/ref/settings/#use-l10n
 USE_TZ = True  # https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 TIME_ZONE = "Europe/Bucharest"
 FILE_UPLOAD_MAX_MEMORY_SIZE = 52428800  # 50 Megabytes
-LOCALE_PATHS = [str(ROOT_DIR / "locale")]  # https://docs.djangoproject.com/en/dev/ref/settings/#locale-paths
+LOCALE_PATHS = [str(BASE_DIR / "locale")]  # https://docs.djangoproject.com/en/dev/ref/settings/#locale-paths
 SECRET_KEY = os.getenv('SECRET_KEY', 'sdfkshdfjhsdf')
 LANGUAGES = [
     ('en', _('English')),
@@ -150,7 +148,10 @@ MIDDLEWARE = [
 # STATIC
 # ------------------------------------------------------------------------------
 STATIC_URL = '/static/'  # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
-STATIC_ROOT = os.path.join(ROOT_DIR, 'static')  # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
@@ -161,7 +162,7 @@ STATICFILES_FINDERS = [
 
 # MEDIA
 # ------------------------------------------------------------------------------
-MEDIA_ROOT = os.path.join(ROOT_DIR, "media")  # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")  # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = "/media/"
 
