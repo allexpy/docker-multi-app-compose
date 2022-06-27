@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # GENERAL
 # ------------------------------------------------------------------------------
 DEBUG = bool(int(os.getenv('DEBUG', 1)))  # https://docs.djangoproject.com/en/dev/ref/settings/#debug
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "*").split(" ")
 LANGUAGE_CODE = "ro"  # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 USE_I18N = True  # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
 USE_L10N = True  # https://docs.djangoproject.com/en/dev/ref/settings/#use-l10n
@@ -53,9 +53,11 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-THIRD_PARTY_APPS = []
-LOCAL_APPS = [
+THIRD_PARTY_APPS = [
+    'django_celery_beat',
+    'django_celery_results'
 ]
+LOCAL_APPS = []
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 

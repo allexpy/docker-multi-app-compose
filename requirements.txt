@@ -13,3 +13,6 @@ typing_extensions==4.1.1
 uvicorn==0.17.5
 gunicorn==20.1.0
 psycopg2-binary==2.9.3
+django-celery-results
+django-celery-beat
+redis
