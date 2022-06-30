@@ -35,7 +35,7 @@ LANGUAGES = [
     ('en', _('English')),
     ('ro', _('Romanian')),
 ]
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8080']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8080']
 
 # URLS
 # ------------------------------------------------------------------------------
@@ -57,7 +57,9 @@ THIRD_PARTY_APPS = [
     'django_celery_beat',
     'django_celery_results'
 ]
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'triggers'
+]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 
@@ -92,11 +94,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # SECURITY
 # ------------------------------------------------------------------------------
-SESSION_COOKIE_HTTPONLY = True  # https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-httponly
-CSRF_COOKIE_HTTPONLY = True  # https://docs.djangoproject.com/en/dev/ref/settings/#csrf-cookie-httponly
-SECURE_BROWSER_XSS_FILTER = True  # https://docs.djangoproject.com/en/dev/ref/settings/#secure-browser-xss-filter
-X_FRAME_OPTIONS = "DENY"  # https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+# SESSION_COOKIE_HTTPONLY = True  # https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-httponly
+# CSRF_COOKIE_HTTPONLY = True  # https://docs.djangoproject.com/en/dev/ref/settings/#csrf-cookie-httponly
+# SECURE_BROWSER_XSS_FILTER = True  # https://docs.djangoproject.com/en/dev/ref/settings/#secure-browser-xss-filter
+# X_FRAME_OPTIONS = "DENY"  # https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options
+# SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
 # CACHES

@@ -35,6 +35,24 @@ services:
     volumes:
       - './staticfiles:/app/staticfiles/'
 
+  celery:
+    build:
+      context: ./django-app
+      dockerfile: Dockerfile.django-app
+    environment:
+      - "PORT:8085"
+    command:
+      - "./run-worker.sh"
+    expose:
+      - "8085"
+    env_file:
+      - ".env"
+    depends_on:
+      - django
+      - db
+    volumes:
+      - './staticfiles:/app/staticfiles/'
+
   python:
     build:
       context: ./py-app  # the folder content
